@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <stack>
+
+using namespace std;
+
+struct TreeNode {
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	};
+//二叉树的前序遍历
+//二叉树
+//接下来进行二叉树的后序遍历
+vector<int>print(TreeNode * root) {
+	vector<int> res;
+	stack<TreeNode *> st;
+	if(!root) return res;
+	while(root || st.empty()) {
+		while(root) {
+		st.push(root);
+		res.push_back(root->val);
+		}
+		auto cur = st.top();
+		st.pop();
+		root=cur->right;
+		}
+		return res;
+	}
+
+int main () {
+	
+
+	return 0;
+
+}
